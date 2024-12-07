@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/aun009/application-config/  # Git repository URL
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka  # Eureka server URL
+  instance:
+    hostname: localhost

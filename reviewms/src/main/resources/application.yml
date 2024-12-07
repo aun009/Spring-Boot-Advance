@@ -1,0 +1,45 @@
+
+
+spring:
+  application:
+    name: review-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/review
+    username: arun
+    password: arun
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka  # Eureka server URL
+  instance:
+    hostname: localhost
+
+# zipkin
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+job-service:
+  url: http://localhost:8082  # Job service URL
+
+company-service:
+  url: http://localhost:8087  # Company service URL
+
+review-service:
+  url: http://localhost:8083  # Review service URL

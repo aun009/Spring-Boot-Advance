@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: company-service
+  datasource:
+    url: jdbc:postgresql://postgres:5432/company
+    username: arun
+    password: arun
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8087
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://servicereg:8761/eureka  # Eureka server URL
+  instance:
+    hostname: localhost
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # Ensures all traces are sampled
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411/api/v2/spans  # Updated Zipkin endpoint
+
+job-service:
+  url: http://job:8082  # Job service URL
+
+company-service:
+  url: http://company:8087  # Company service URL
+
+review-service:
+  url: http://review:8083  # Review service URL
